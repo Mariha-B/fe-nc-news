@@ -104,3 +104,47 @@ body {
 .article-comments {
   margin-top: 10px;
 }
+
+.comments-container {
+  margin-top: 20px;
+}
+
+.comments-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comment-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.comment-author {
+  margin: 0;
+  font-size: 16px;
+}
+
+.comment-date {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.comment-body {
+  margin-bottom: 10px;
+}
+
+.comment-votes {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
