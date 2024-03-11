@@ -3,6 +3,8 @@ import './App.css'
 import {Route,Routes} from 'react-router-dom'
 import Header from './Components/Header'
 import UserContext from './Contexts/User'
+import ArticleCard from './Components/ArticleCard'
+import Home from './Components/Home'
 
 
 function App() {
@@ -13,8 +15,10 @@ function App() {
   return (
     <>
     <UserContext.Provider value={{loggedInUser: loggedInUser, setLoggedInUser:setLoggedInUser}}>
+    <Header/>
       <Routes>
-        <Route path="/" element={<Header/>}/>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/articles/:article_id" element={<ArticleCard/>}/>
         {/* <Route path="/create" element={<Create/>}/> */}
       </Routes>
     </UserContext.Provider>

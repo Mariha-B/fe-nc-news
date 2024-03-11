@@ -18,9 +18,6 @@ const Header=()=>{
                 <p>{loggedInUser.username}</p>
             </div>
         </div>
-        <div>
-            <ArticleList/>
-        </div>
     </>
         
         )

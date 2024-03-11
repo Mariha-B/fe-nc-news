@@ -20,6 +20,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  margin-bottom: 50px;
   
 }
 
@@ -77,4 +78,29 @@ body {
 
 .article_card h2 {
   margin: 10px 0;
+}
+
+.article-card {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(172, 200, 172);
+}
+
+.article-topic {
+  margin: 5px 0;
+}
+
+.article-title {
+  margin: 10px 0;
+}
+
+.article-image {
+  width: 100%;
+  height: auto;
+}
+
+.article-comments {
+  margin-top: 10px;
 }
