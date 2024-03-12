@@ -10,3 +10,18 @@ export const fetchData =  (endpoint) => {
         return response.data
     })
 }
+
+export const fetchCommentsOnArticle =  (articleId) => {
+    return newsApi.get(`/articles/${articleId}/comments`)
+    .then((response) => {
+        return response.data
+    })
+}
+
+export const patchArticle =  (articleId, patchBody) => {
+    
+    return newsApi.patch(`/articles/${articleId}`,patchBody)
+    .then((response) => {
+        return response.data.article
+    })
+}

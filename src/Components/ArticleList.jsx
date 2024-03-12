@@ -5,16 +5,26 @@ import {Link} from 'react-router-dom'
 
 const ArticleList= ()=> {
     const [articles, setArticles] = useState([])
-    
+    const [isLoading, setIsLoading]=useState(false)
+
         useEffect(() => {
+            setIsLoading(true);
             fetchData(`/articles`).then(({articles})=>{
                 setArticles(articles);
+                setIsLoading(false)
             }).catch((err)=>{
                 console.log(err);
             })
         },[])
         
+
+        if(isLoading){
             return (
+                <p id='loading'>Fetching your articles ...</p>
+                )
+        }else{
+            return (
+        <div className='article-container'>
             <ul className="article_list">
                  {articles.map((article) => (
                     <Link className='link' key={article.article_id} to ={`articles/${article.article_id}`}><li className="article_card" key={article.article_id}>
@@ -27,7 +37,9 @@ const ArticleList= ()=> {
                 ))}
               
             </ul>
+        </div>
             )
     }
+}
 
     export default ArticleList

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { fetchData } from '../Utils/api';
+import { fetchCommentsOnArticle } from '../Utils/api';
 
 const Comments =({article_id}) => {
 
     const [comments, setComments] = useState([])
 
     useEffect(() => {
-        fetchData(`/articles/${article_id}/comments`).then(({comments})=>{
+        fetchCommentsOnArticle(article_id).then(({comments})=>{
             setComments(comments)
         }).catch((err)=>{
             console.log(err);
@@ -24,8 +24,8 @@ const Comments =({article_id}) => {
                             <h4 className="comment-date">
                                 {new Date(comment.created_at).toLocaleDateString('en-GB', {
                                     day: 'numeric',
-                                    month: 'long',
-                                    year: 'numeric',
+                                    month: 'short',
+                                    year: '2-digit',
                                     hour: '2-digit',
                                     minute: '2-digit'
                                 })}
