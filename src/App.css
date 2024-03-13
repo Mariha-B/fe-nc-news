@@ -2,9 +2,13 @@
   /* CSS HEX */
   --lavender-web: #c5d1ebff;
   --slate-gray: rgb(136, 140, 161);
+  --light-gray: rgb(180, 184, 200);
   --powder-blue: rgb(204, 217, 223);
   --paynes-gray: rgb(217, 224, 237);
   --rich-black: #0f1020ff;
+  --cream: #fdf5bfff;
+
+  --olivine-2: #8dab7fff;
   --dark-purple: #331832ff;
 }
 
@@ -101,7 +105,7 @@ body {
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
-  background-color:  var(--slate-gray);
+  background-color:  var(--light-gray);
   color: var(--rich-black);
   border: solid white;
   border-radius: 10px;
@@ -120,7 +124,7 @@ body {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   padding: 10px;
-  background-color: var(--slate-gray);
+  background-color: var(--light-gray);
 }
 
 .article-topic {
@@ -148,7 +152,7 @@ body {
 
 }
 .comment-item{
-  background-color:var(--slate-gray);
+  background-color:var(--light-gray);
   
 }
 .comments-list {
@@ -202,7 +206,6 @@ body {
   margin: 0 auto;
   width: 100%;
 
-  
 }
 
 #outer-container{
@@ -220,7 +223,7 @@ body {
 
 #article-container{
   display: flex;
-  background-color:var(--rich-black);;
+  background-color:white;
   border-radius: 8px;
   border: solid white;
   border-radius: 10px;
@@ -228,7 +231,7 @@ body {
 
 .article-votes {
   font-size: 25px; 
-  color: #f4f4f4;
+  color: var(--rich-black);
 }
 #form {
   display: flex;
@@ -277,8 +280,8 @@ button[type='submit'] {
 button[type='button'] {
   padding: 10px;
   font-size: 16px;
-  background-color:var(--slate-gray);
-  color: #fff;
+  background-color:var(--light-gray);
+  color: var(--rich-black);
   border: none;
   border-radius: 5px;
   cursor: pointer;
