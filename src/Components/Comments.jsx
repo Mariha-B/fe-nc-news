@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import { fetchCommentsOnArticle } from '../Utils/api';
+import { useContext, useEffect, useState } from 'react';
+import { deleteComment, fetchCommentsOnArticle } from '../Utils/api';
 import CommentAdder from './CommentAdder';
+import UserContext from '../Contexts/User';
 
 const Comments =({article_id}) => {
-
+    const {loggedInUser} = useContext(UserContext)
     const [comments, setComments] = useState([])
 
     useEffect(() => {
@@ -14,6 +15,16 @@ const Comments =({article_id}) => {
         })
     },[article_id])
     
+    const handleDelete = (comment_id) => {
+        deleteComment(comment_id).then(()=>{
+            setComments((currComments) => currComments.filter(comment => comment.comment_id !== comment_id));
+    
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+
+
     return (
         <div className="comments-container">
             <div>
@@ -33,6 +44,9 @@ const Comments =({article_id}) => {
                                     minute: '2-digit'
                                 })}
                             </h4>
+                            {loggedInUser.username === comment.author ? (
+                                    <button className="comment-delete-button" onClick={() => {handleDelete(comment.comment_id)}}>X</button>
+                                ) : null}
                         </div>
                         <p className="comment-body">{comment.body}</p>
                         <h5 className="comment-votes">{comment.votes}</h5>
