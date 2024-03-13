@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchCommentsOnArticle } from '../Utils/api';
+import CommentAdder from './CommentAdder';
 
 const Comments =({article_id}) => {
 
@@ -12,10 +13,12 @@ const Comments =({article_id}) => {
             console.log(err);
         })
     },[article_id])
-
     
     return (
         <div className="comments-container">
+            <div>
+               <CommentAdder article_id={article_id} setComments={setComments}/>
+            </div>
             <ul className="comments-list">
                 {comments.map((comment) => (
                     <li className="comment-item" key={comment.comment_id}>

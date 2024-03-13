@@ -53,9 +53,9 @@ const ArticleCard =() => {
             <div id='outer-container'>
                 <div id= 'article-container'>
                 <div id='vote-buttons'>
-                    <button onClick={()=>{upVote(article.article_id)}}>Upvote</button>
+                    <button type='button' onClick={()=>{upVote(article.article_id)}}>Upvote</button>
                     <p className="article-votes">{article.votes}</p>
-                    <button onClick={()=>{downVote(article.article_id)}}>DownVote</button>
+                    <button type='button' onClick={()=>{downVote(article.article_id)}}>DownVote</button>
                 </div>
                 <div className='card-container'>
                     <div className="article-card">
