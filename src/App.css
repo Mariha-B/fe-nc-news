@@ -1,8 +1,8 @@
 :root {
   /* CSS HEX */
-  --lavender-web: #c5d1ebff;
-  --slate-gray: rgb(136, 140, 161);
-  --light-gray: rgb(180, 184, 200);
+  --lavender-web: rgb(124, 162, 142);
+  --slate-gray: #354f52ff;
+  --light-gray: rgb(220, 233, 233);
   --powder-blue: rgb(204, 217, 223);
   --paynes-gray: rgb(217, 224, 237);
   --rich-black: #0f1020ff;
@@ -10,6 +10,13 @@
 
   --olivine-2: #8dab7fff;
   --dark-purple: #331832ff;
+
+  --bistre: #322621ff;
+  --ash-gray: rgb(10, 10, 10);
+--cambridge-blue: #84a98cff;
+--hookers-green: #52796fff;
+--dark-slate-gray: #354f52ff;
+--charcoal: #2f3e46ff;
 }
 
 * {
@@ -21,7 +28,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color:  var(--lavender-web);
-  background-image: url('./clouds.png');
+  background-image: url('./wild.png');
 }
 
 
@@ -81,6 +88,8 @@ body {
 .article-container {
   display: flex;
   justify-content: center;
+  
+  
 
 }
 
@@ -91,6 +100,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  
 }
 
 
@@ -109,6 +119,7 @@ body {
   color: var(--rich-black);
   border: solid white;
   border-radius: 10px;
+  box-shadow: 0px 0px 15px 2px rgba(0,0,0,.8);
 }
 
 .article_card p {
@@ -125,6 +136,7 @@ body {
   border-bottom-right-radius: 10px;
   padding: 10px;
   background-color: var(--light-gray);
+  box-shadow: 50px var(--charcoal);
 }
 
 .article-topic {
@@ -153,6 +165,7 @@ body {
 }
 .comment-item{
   background-color:var(--light-gray);
+  box-shadow: 0px 0px 15px 2px rgba(0,0,0,.8);
   
 }
 .comments-list {
@@ -205,6 +218,7 @@ body {
   align-items: center;
   margin: 0 auto;
   width: 100%;
+  
 
 }
 
@@ -214,6 +228,7 @@ body {
   margin: 0 auto;
   align-items: center;
   width: 60%
+  
   
 }
 #vote-buttons button {
@@ -227,6 +242,7 @@ body {
   border-radius: 8px;
   border: solid white;
   border-radius: 10px;
+  box-shadow: 0px 0px 15px 2px rgba(0,0,0,.8);
 }
 
 .article-votes {
@@ -243,6 +259,7 @@ body {
   border: solid white;
   border-radius: 10px;
   margin-bottom: 20px;
+  box-shadow: 0px 0px 15px 2px rgba(0,0,0,.8);
 }
 #form h3{
   padding: 15px;
@@ -280,8 +297,8 @@ button[type='submit'] {
 button[type='button'] {
   padding: 10px;
   font-size: 16px;
-  background-color:var(--light-gray);
-  color: var(--rich-black);
+  background-color:var(--slate-gray);
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -290,9 +307,24 @@ button[type='button'] {
 
 
 button[type='submit']:hover {
-  background-color:var(--powder-blue);
+  background-color:var(--rich-black);
 }
 
 button[type='button']:hover {
-  background-color:var(--powder-blue);
+  background-color:var(--rich-black);
+}
+
+.comment-delete-button {
+  background-color: var(--hookers-green);  
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 8px 12px; 
+  font-size: 14px; 
+  font-weight:bolder;
+  cursor: pointer;
+}
+
+.comment-delete-button:hover {
+  background-color: #cc4c35; 
 }

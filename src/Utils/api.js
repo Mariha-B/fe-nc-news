@@ -33,3 +33,10 @@ export const postComment =  (article_id, patchBody) => {
         return response.data.comment
     })
 }
+
+export const deleteComment = (comment_id) => {
+    return newsApi.delete(`/comments/${comment_id}`)
+    .then((response) => {
+        return response.data
+    })
+}
