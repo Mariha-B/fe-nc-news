@@ -1,8 +1,12 @@
 import ArticleList from "./ArticleList"
+import Topics from "./Topics"
 
 const Home=()=>{
-    return(
+    
+    return(<>
+        <Topics/>
         <ArticleList/>
+    </>
     )
 }
 

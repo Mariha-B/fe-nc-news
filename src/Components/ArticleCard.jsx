@@ -50,6 +50,7 @@ const ArticleCard =() => {
     else{
 
         return(
+        <div id='full-container'>
             <div id='outer-container'>
                 <div id= 'article-container'>
                 <div id='vote-buttons'>
@@ -72,6 +73,7 @@ const ArticleCard =() => {
                         <Comments article_id={article_id}/>
                     </div>
             </div>
+        </div>
         )
     }
 }
