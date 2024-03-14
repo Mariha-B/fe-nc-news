@@ -29,7 +29,7 @@ if(isLoading){
         <div className="input-container">
             <p id='loading'>Posting your comment...</p>
         </div>
-        <button type="submit">Submit Comment</button>
+        <button type="submit">Submit</button>
     </form>
         )
 }
@@ -40,7 +40,7 @@ return (
         <div className="input-container">
             <input minLength='5'type='text' required placeholder="What's on your mind..." value={newComment} onChange={(event) => setNewComment(event.target.value)}></input>
         </div>
-        <button type="submit">Submit Comment</button>
+        <button type="submit">Submit</button>
     </form>
 )
 }
