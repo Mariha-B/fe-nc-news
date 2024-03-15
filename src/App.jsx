@@ -6,6 +6,7 @@ import UserContext from './Contexts/User'
 import ArticleCard from './Components/ArticleCard'
 import Home from './Components/Home'
 import ArticleList from './Components/ArticleList'
+import Errors from './Components/Errors'
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/articles/:article_id" element={<ArticleCard/>}/>
         <Route path="/articles/topic/:topic" element={<ArticleList/>}/>
-        {/* <Route path="/create" element={<Create/>}/> */}
+        <Route path="*" element={<Errors/>}/>
       </Routes>
     </UserContext.Provider>
     </>

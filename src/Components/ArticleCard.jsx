@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchData, patchArticle } from '../Utils/api';
 import Comments from './Comments';
+import Errors from './Errors';
 
 const ArticleCard =() => {
     const { article_id } = useParams()
@@ -15,7 +16,7 @@ const ArticleCard =() => {
             setArticle(article)
             setIsLoading(false)
         }).catch((err)=>{
-            console.log(err);
+            setError(err.response)
         })
     },[article_id])
 
@@ -39,6 +40,9 @@ const ArticleCard =() => {
             setError([err])
         })
     }
+    if(error){
+        return <Errors errStatus={error.status} errMessage={error.data.msg} />   
+       }
     if(error){
         return 'error'
     }
