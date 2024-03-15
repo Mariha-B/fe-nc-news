@@ -84,6 +84,46 @@ body {
   font-size: 16px;
 }
 
+.sort-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 10px;
+  background-color:var(--light-gray);
+  border: solid white;
+  max-width:70%;
+  margin:auto;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  font-size: 25px;
+}
+
+.sort-container label {
+  margin-right: 10px;
+}
+
+.sort-container select {
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.custom-dropdown {
+  position: relative;
+  margin-right: 20px;
+}
+
+.custom-dropdown select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 8px 24px 8px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+
 /* Topics */
 
 #full-topic-container{

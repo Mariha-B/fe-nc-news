@@ -28,7 +28,7 @@ const Topics = () => {
                 <div className='topic-container'>
                     <ul className="topic-list">
                         {topics.map((topic) => (
-                            <Link className='link' key={topic.slug} to ={`/articles?topic=${topic.slug}`}><li className="topic-card" key={topic.slug}>
+                            <Link className='link' key={topic.slug} to ={`/articles/topic/${topic.slug}`}><li className="topic-card" key={topic.slug}>
                                 <p>{topic.slug}</p>
                             </li>
                             </Link>

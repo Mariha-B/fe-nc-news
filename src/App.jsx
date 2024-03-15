@@ -22,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/articles/:article_id" element={<ArticleCard/>}/>
-        <Route path="/articles" element={<ArticleList/>}/>
+        <Route path="/articles/topic/:topic" element={<ArticleList/>}/>
         {/* <Route path="/create" element={<Create/>}/> */}
       </Routes>
     </UserContext.Provider>
