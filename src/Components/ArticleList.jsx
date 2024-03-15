@@ -9,7 +9,6 @@ const ArticleList= ()=> {
     const [searchParams, setSearchParams] = useSearchParams()
     const [sortBy, setSortBy] = useState("created_at");
     const [sortOrder, setSortOrder] = useState("DESC");
-    
 
     useEffect(() => {
         setIsLoading(true);
@@ -41,6 +40,8 @@ const ArticleList= ()=> {
                         <div className="custom-dropdown">
                             <select id="sortBy" value={sortBy} onChange={handleSort}>
                                 <option value="created_at">Date</option>
+                                <option value="votes">Votes</option>
+                                <option value="comment_count">Comment Count</option>
                             </select>
                         </div>
                     <label htmlFor="sortOrder">Order:</label>
