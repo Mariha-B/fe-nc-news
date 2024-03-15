@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import { deleteComment, fetchCommentsOnArticle } from '../Utils/api';
 import CommentAdder from './CommentAdder';
 import UserContext from '../Contexts/User';
+import Errors from './Errors';
 
 const Comments =({article_id}) => {
     const {loggedInUser} = useContext(UserContext)
     const [comments, setComments] = useState([])
-
+    const [error, setError] = useState(null); 
+    
     useEffect(() => {
         fetchCommentsOnArticle(article_id).then(({comments})=>{
             setComments(comments)
@@ -20,11 +22,13 @@ const Comments =({article_id}) => {
             setComments((currComments) => currComments.filter(comment => comment.comment_id !== comment_id));
     
         }).catch((err)=>{
-            console.log(err);
+            setError(err.response)
         })
     }
 
-
+    if(error){
+        return <Errors errStatus={error.status} errMessage={error.data.msg} />   
+       }
     return (
         <div className="comments-container">
             <div>

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import { fetchData } from "../Utils/api"
 import { Link } from "react-router-dom"
+import Errors from "./Errors";
 
 const Topics = () => {
+    const [error, setError] = useState(null); 
     const [topics, setTopics]=useState([])
     const [isLoading, setIsLoading]=useState(false)
 
@@ -12,11 +14,13 @@ const Topics = () => {
             setTopics(topics)
             setIsLoading(false)
         }).catch((err)=>{
-            console.log(err);
+            setError(err.response)
         })
     },[])
 
-
+    if(error){
+        return <Errors errStatus={error.status} errMessage={error.data.msg} />   
+       }
     if(isLoading){
         return (
             <p id='loading'>Fetching your topics ...</p>

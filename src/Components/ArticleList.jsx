@@ -1,33 +1,42 @@
 import { useState , useEffect} from "react"
 import { fetchData } from "../Utils/api"
-import {Link, useParams, useSearchParams} from 'react-router-dom'
+import {Link, useNavigate, useParams, useSearchParams} from 'react-router-dom'
+import Errors from "./Errors";
 
 
 const ArticleList= ()=> {
+    const [error, setError] = useState(null); 
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading]=useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
-    const [sortBy, setSortBy] = useState("created_at");
-    const [sortOrder, setSortOrder] = useState("DESC");
-
+    const {topic} = useParams();
+    const sortBy = searchParams.get('sort_by')
+    const order = searchParams.get('order')
     useEffect(() => {
         setIsLoading(true);
-        fetchData(`/articles?${searchParams.toString()}&sort_by=${sortBy}&order=${sortOrder}`).then(({articles})=>{
+        fetchData(`/articles`, topic, sortBy, order).then(({articles})=>{
+
             setArticles(articles);
             setIsLoading(false)
         }).catch((err)=>{
-            console.log(err);
+            setError(err.response)
         })
-    },[searchParams, sortBy, sortOrder])
+    },[topic,sortBy, order])
     
     const handleSort = (event) => {
-        setSortBy(event.target.value);
+        const newParams = new URLSearchParams(searchParams);
+        newParams.set('sort_by', event.target.value);
+        setSearchParams(newParams);
     };
 
     const handleSortOrder = (event) => {
-        setSortOrder(event.target.value);
+        const newParams = new URLSearchParams(searchParams);
+        newParams.set('order', event.target.value);
+        setSearchParams(newParams);
     };
-
+    if(error){
+     return <Errors errStatus={error.status} errMessage={error.data.msg} />   
+    }
     if(isLoading){
         return (
             <p id='loading'>Fetching your articles ...</p>
@@ -38,7 +47,7 @@ const ArticleList= ()=> {
                 <div className="sort-container">
                     <label htmlFor="sortBy">Sort by:</label>
                         <div className="custom-dropdown">
-                            <select id="sortBy" value={sortBy} onChange={handleSort}>
+                            <select id="sortBy" value={sortBy || ''}  onChange={handleSort}>
                                 <option value="created_at">Date</option>
                                 <option value="votes">Votes</option>
                                 <option value="comment_count">Comment Count</option>
@@ -46,7 +55,7 @@ const ArticleList= ()=> {
                         </div>
                     <label htmlFor="sortOrder">Order:</label>
                 <div className="custom-dropdown">
-                    <select id="sortOrder" value={sortOrder} onChange={handleSortOrder}>
+                    <select id="sortOrder" value={order || ''} onChange={handleSortOrder}>
                         <option value="DESC">Descending</option>
                         <option value="ASC">Ascending</option>
                     </select>
