@@ -13,7 +13,7 @@ function App() {
 
   const [loggedInUser, setLoggedInUser]=useState({
     username: 'grumpy19',
-    avatar_url: '../bean.png'
+    avatar_url: `https://www.ihaveabean.com/cdn/shop/files/coffeebean45kb_1600x.jpg?v=1643148745`
   })
   
   return (
