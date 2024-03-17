@@ -13,7 +13,7 @@ const Header=()=>{
                 <Link className="link" to={`/`}>Home</Link>
             </nav>
             <div id='user'>
-                <img id= 'avatar' src={loggedInUser.avatar_url}></img>
+                <img id= 'avatar' alt='user profile image' src={loggedInUser.avatar_url}></img>
                 <p>{loggedInUser.username}</p>
             </div>
         </div>
