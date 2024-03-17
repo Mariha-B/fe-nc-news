@@ -4,6 +4,7 @@ import { postComment } from "../Utils/api";
 const CommentAdder =({article_id, setComments}) => {
 const [newComment, setNewComment] = useState('')
 const [isLoading, setIsLoading]=useState(false)
+const [error, setError] = useState(null);
 
 const handleSubmit=(event)=>{
     setIsLoading(true)
@@ -18,10 +19,15 @@ const handleSubmit=(event)=>{
             return [commentFromApi,...currComments]
         })
         setIsLoading(false)
-    }).catch((err)=>{
-        console.log(err);
-    })
+    }).catch((err) => {
+        setError(err.response);
+        setIsLoading(false);
+    });
 }
+
+if(error){
+    return <Errors errStatus={error.status} errMessage={error.data.msg} />   
+   }
 if(isLoading){
     return (
         <form id='form'>

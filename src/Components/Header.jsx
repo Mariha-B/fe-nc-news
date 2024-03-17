@@ -11,7 +11,6 @@ const Header=()=>{
             <h1 className="Header">NC News</h1>
             <nav className='main-nav'>
                 <Link className="link" to={`/`}>Home</Link>
-                <Link className="link" to={`/create`}>Create</Link>
             </nav>
             <div id='user'>
                 <img id= 'avatar' src={loggedInUser.avatar_url}></img>
