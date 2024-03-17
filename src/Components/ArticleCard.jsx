@@ -27,6 +27,10 @@ const ArticleCard =() => {
         const updatedArticle = { ...article, votes: article.votes + 1 };
         setArticle(updatedArticle);
         patchArticle(article_id, patchBody)
+        .catch((err) => {
+            setError(err.response)
+            setArticle(article);
+        })
     }
 
     const downVote=(article_id)=>{
@@ -37,7 +41,8 @@ const ArticleCard =() => {
         setArticle(updatedArticle);
         patchArticle(article_id, patchBody)
         .catch((err) => {
-            setError([err])
+            setError(err.response)
+            setArticle(article);
         })
     }
     if(error){
